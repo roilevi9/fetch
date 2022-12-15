@@ -27,6 +27,30 @@
 .App-link {
   color: #61dafb;
 }
+h1 {
+  font-family: Tahoma;
+  font-size: 40px;
+  font-weight: 600;
+  background-image: radial-gradient(#553c9a, #ee4b2b);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+table {
+  width: 50%;
+  border: 1px solid;
+}
+
+td {
+  text-align: center;
+  border: 1px solid;
+}
+
+th {
+  background-color: #6f54b7;
+  border: 1px solid;
+}
 
 @keyframes App-logo-spin {
   from {
