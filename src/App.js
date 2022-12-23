@@ -1,7 +1,8 @@
 import './App.css';
+import {useState} from 'react';
 
 function App() {
-  const people = [
+  const [data, setData] = useState([
     {
       "id": 1,
       "name": "Leanne Graham",
@@ -232,23 +233,48 @@ function App() {
         "bs": "target end-to-end models"
       }
     }
-  ];
+  ]);
+  const [Email, setEmail] = useState('')
+  const [Name, setName] = useState('')
+
+  function handeleEmail(e){
+    setEmail(e.target.value)
+  }
+
+  function handeleName(e){
+    setName(e.target.value)
+  }
+
+  function AddData(e){
+    let addData = {name: Name, email: Email}
+    setData([...data, addData])
+  }
 
   return (
       <div>
         <h1 align="center">Fetches the name and email from data:</h1>
+        <div align="center">
+        <label for="email"> Enter email: </label>
+        <input type='email' id = 'email' value={Email} onChange = {handeleEmail}></input>
+        <label for="Name"> Enter name: </label>
+        <input id = 'Name' value={Name} onChange = {handeleName}></input>
+        <p/>
+        <button disabled={!Email || !Name} onClick={AddData}>Add to table</button>
+        </div>
+        <p/>
         <table align="center">
           <tr>
             <th>Email</th>
             <th>Name</th>
           </tr>
 
-          {people.map((person, index) => (
-            <tr data-index = {index}>
-              <td>{person.email}</td>
-              <td>{person.name}</td>
+          {data.map((data) => (
+            <tr>
+              <td>{data.email}</td>
+              <td>{data.name}</td>
             </tr>
           ))}
+         
         </table>
       </div>
     );
